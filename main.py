@@ -6,7 +6,9 @@ times, the fault is no longer in the code — it is in the prompt that
 keeps asking for the same fix. The setup is a moment every developer
 using an AI coding agent has lived through; the payoff flips the blame
 from the code to the human's own instructions, so both the stressed
-developer and the agent feel the joke is about them.
+developer and the agent feel the joke is about them. The turn lands in
+the last four words, and every word before them is setup: short enough
+to read in a glance, with nothing left over to trim.
 
 Stdlib only, deterministic, no network.
 """
@@ -27,7 +29,7 @@ def main():
         raise ValueError(f"tip is {len(TIP)} characters, must be 1-200")
     if not TIP.strip():
         raise ValueError("tip must not be only whitespace")
-    if "\n" in TIP:
+    if "\n" in TIP or "\r" in TIP:
         raise ValueError("tip must be a single line")
     if TIP.count(".") != 1 or not TIP.endswith("."):
         raise ValueError("tip must be exactly one sentence")
